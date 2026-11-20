@@ -1,0 +1,201 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
+  color: #243147;
+  background: linear-gradient(135deg, #edf3ff 0%, #f5f2ff 55%, #eaf7f5 100%);
+}
+
+.todo-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid #e9edf5;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(55, 72, 111, 0.1);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #7478d8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+
+h1 span { color: #7772df; }
+
+.subtitle {
+  margin: 12px 0 30px;
+  color: #8993a5;
+  font-size: 14px;
+}
+
+.input-area { display: flex; gap: 10px; }
+
+#todoInput {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 0 16px;
+  background: #f7f9fd;
+  border: 1px solid #e3e8f1;
+  border-radius: 13px;
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#todoInput:focus {
+  border-color: #8581e8;
+  box-shadow: 0 0 0 3px rgba(133, 129, 232, 0.13);
+}
+
+.add-button {
+  flex-shrink: 0;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 13px;
+  background: #726de0;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.add-button:hover { background: #5d58ce; }
+.add-button:active { transform: scale(0.97); }
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 32px;
+  color: #7c8799;
+  font-size: 14px;
+}
+
+.summary strong { color: #716bdc; font-weight: 800; }
+.summary-divider { width: 1px; height: 14px; background: #d9deea; }
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 { margin: 0; font-size: 17px; }
+.section-heading p { margin: 0; font-size: 12px; color: #9ca5b4; }
+
+.todo-list { list-style: none; padding: 0; margin: 0; }
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid #ebedf5;
+  border-radius: 14px;
+  background: #ffffff;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.todo-item:hover { background: #fbfbff; border-color: #dedcf8; }
+.todo-item.completed { background: #f8f9fc; }
+
+.todo-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 4px 0;
+  background: none;
+  color: #334155;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.todo-status {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cdd4e2;
+  border-radius: 7px;
+}
+
+.todo-label { overflow-wrap: anywhere; }
+.completed .todo-status { background: #7772df; border-color: #7772df; color: white; }
+.completed .todo-status::after { content: "✓"; font-size: 13px; font-weight: bold; }
+.completed .todo-label { text-decoration: line-through; color: #a6afbd; }
+
+.delete-button {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 9px;
+  color: #df6472;
+  background: #fff0f1;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-button:hover { background: #ffe1e5; }
+button:focus-visible { outline: 3px solid #b8b5f5; outline-offset: 3px; }
+
+.empty-state {
+  padding: 30px 12px;
+  margin: 0;
+  border: 1px dashed #dce2ee;
+  border-radius: 14px;
+  text-align: center;
+  line-height: 1.8;
+  color: #9ba5b5;
+  font-size: 14px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  body { padding: 16px; align-items: flex-start; }
+  .todo-card { padding: 25px 20px; margin-top: 28px; border-radius: 22px; }
+  h1 { font-size: 27px; }
+  .add-button { padding: 0 15px; }
+  .section-heading p { font-size: 11px; }
+}
